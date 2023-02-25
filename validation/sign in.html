@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Rubik+Moonrocks&family=Updock&display=swap"
+    rel="stylesheet" />
+  <title>form</title>
+  <link rel="stylesheet" href="./reset.css" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="main">
+    <form action="" method="POST" class="form" id="form-1">
+      <h3 class="heading">Đăng Ký</h3>
+      <p class="desc"></p>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Tên tài khoản</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Vd: chuyenem" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="text" placeholder="Vd: email@domain.com" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Mật khẩu</label>
+        <input id="password" name="password" type="password" placeholder="password" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+        <input id="password_confirmation" name="password_confirmation" placeholder="password" type="password"
+          class="form-control" />
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="./main.js"></script>
+  <script>
+    Validator({
+      selector: ".form-group",
+      form: "#form-1",
+      rules: [
+        Validator.isRequired("#fullname"),
+        Validator.isRequired("#email"),
+        Validator.isEmail("#email"),
+        Validator.isRequired("#password"),
+        Validator.minLength("#password", 6),
+        //   Validator.isRequired("#password_confirmation"),
+        Validator.isConfirmed("#password_confirmation", function () {
+          return document.querySelector("#form-1 #password").value;
+        }),
+      ],
+      onSubmit: function (data) {
+        console.log(data);
+      },
+    });
+  </script>
+</body>
+
+</html>

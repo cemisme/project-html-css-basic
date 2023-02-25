@@ -1,0 +1,76 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+}
+* {
+  
+  box-sizing: inherit; /*Kế thừa thẻ chứa nó*/
+}
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  box-sizing: border-box;
+}
+.grid {
+  width: 1400px;
+  max-width: 100%;
+  margin: 0 auto; /* dùng để tương thích nhiều màn hình*/
+}
+.grid__full-width {
+  width: 100%;
+}
+.grid__row {
+  display: flex;
+  flex-wrap: wrap; /*Các thằng con có độ dài vượt quá thì xuống hàng*/
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.grid__column-2{
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 16.6667%;
+}
+.grid__column-2-10{
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20%;
+}
+.grid__column-10{
+  padding-left: 5px;
+  padding-right:5px;
+  width: 83.3334%;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.btn{
+  min-width: 124px;
+  height: 34px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 16px;
+}
+.select-input{
+  position: relative;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 2px;
+  background-color: #fff;
+  min-width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
